@@ -1,0 +1,19 @@
+logging:
+    level:
+        vn.com.ntqsolution: INFO
+    file: /opt/log/Monitoring-Mongo-Operation.log
+  
+application:
+    database:
+        mongodb:
+            host: localhost
+            port: 27017
+            user: dbadmin
+            password: adminntq
+            authenticationDatabase: admin
+            
+    logging:
+        currentDBOperation:
+            fixedDelay: 30000
+            #5 sec
+            slowTime: 5

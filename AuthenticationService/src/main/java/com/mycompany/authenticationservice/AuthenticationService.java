@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vn.com.ntqsolution;
+package com.mycompany.authenticationservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author tuantv
  */
 @SpringBootApplication
-public class Application {
-    
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+public class AuthenticationService {
+   
+    public static void main(String[] aegs) {
+        SpringApplication.run(AuthenticationService.class, aegs);
     }
 }

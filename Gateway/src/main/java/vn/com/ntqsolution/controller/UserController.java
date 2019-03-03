@@ -13,11 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @author tuantv
  */
 @RestController
-public class IndexController {
+public class UserController {
     
-    @GetMapping("welcome")
-    public String getMessage() {
-        return "Hello world";
+    @GetMapping("/admin")
+    public String helloAdmin() {
+        return "{\"data\":\"hello admin\"}";
     }
     
+    @GetMapping("/ad")
+    public String helloAd() {
+        return "{\"data\":\"hello ad\"}";
+    }
+    
+    @GetMapping("/register")
+    public String register() {
+        return "{\"data\":\"register\"}";
+    }
 }

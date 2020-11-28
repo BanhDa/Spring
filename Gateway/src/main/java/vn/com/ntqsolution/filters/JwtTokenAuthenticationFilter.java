@@ -8,6 +8,7 @@ package vn.com.ntqsolution.filters;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.FilterChain;
@@ -61,6 +62,12 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
                     .getBody();
 
             String username = claims.getSubject();
+            Date expiredTime = claims.getExpiration();
+            boolean isExpired = checkExpiredToken(expiredTime);
+            if (isExpired) {
+                chain.doFilter(request, response);  		// If not valid, go to the next filter.
+                return;
+            }
             if (username != null) {
                 @SuppressWarnings("unchecked")
                 List<String> authorities = (List<String>) claims.get("authorities");
@@ -83,6 +90,15 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
         // go to the next filter in the filter chain
         chain.doFilter(request, response);
+    }
+    
+    private boolean checkExpiredToken(Date time) {
+        if (time == null) {
+            return true;
+        }
+        
+        long now = System.currentTimeMillis();
+        return now < time.getTime();
     }
 
 }

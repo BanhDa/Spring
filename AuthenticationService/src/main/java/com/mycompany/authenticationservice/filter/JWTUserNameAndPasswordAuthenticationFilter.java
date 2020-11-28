@@ -5,7 +5,6 @@
  */
 package com.mycompany.authenticationservice.filter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mycompany.authenticationservice.config.JWTConfig;
 import com.mycompany.authenticationservice.request.LoginRequestData;
 import com.mycompany.utils.JsonUtil;

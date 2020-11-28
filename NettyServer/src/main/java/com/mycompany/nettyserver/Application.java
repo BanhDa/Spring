@@ -5,6 +5,8 @@
  */
 package com.mycompany.nettyserver;
 
+import io.vertx.core.Vertx;
+
 /**
  *
  * @author tuantv
@@ -12,6 +14,8 @@ package com.mycompany.nettyserver;
 public class Application {
     
     public static void main(String[] args) {
-        
+        HelloVerticle helloVerticle = new HelloVerticle();
+        Vertx vertx = Vertx.vertx();
+        vertx.deployVerticle(helloVerticle);
     }
 }
